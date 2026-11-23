@@ -1,0 +1,427 @@
+{
+ "timeline": [
+  {
+   "src": [
+    15.3,
+    29.9
+   ]
+  },
+  {
+   "src": [
+    45.8,
+    52.8
+   ]
+  },
+  {
+   "src": [
+    69.8,
+    91.8
+   ]
+  },
+  {
+   "src": [
+    96.0,
+    112.5
+   ]
+  },
+  {
+   "src": [
+    124.3,
+    128.8
+   ]
+  },
+  {
+   "src": [
+    131.8,
+    138.0
+   ]
+  },
+  {
+   "src": [
+    222.3,
+    230.3
+   ]
+  },
+  {
+   "src": [
+    237,
+    252
+   ]
+  },
+  {
+   "src": [
+    257.6,
+    289.5
+   ]
+  },
+  {
+   "card": 1.4
+  },
+  {
+   "src": [
+    341.8,
+    360.5
+   ]
+  },
+  {
+   "src": [
+    451,
+    485
+   ]
+  },
+  {
+   "src": [
+    570.8,
+    573.5
+   ]
+  },
+  {
+   "src": [
+    611.2,
+    624
+   ]
+  },
+  {
+   "src": [
+    741.9,
+    762.5
+   ]
+  },
+  {
+   "src": [
+    777,
+    796.5
+   ]
+  },
+  {
+   "src": [
+    826.9,
+    841
+   ]
+  }
+ ],
+ "fix": {
+  "adaptar": "daftar",
+  "pulang": null,
+  "help": "health",
+  "skortion": "scorpio",
+  "bionya": "biasanya",
+  "yos": "iOS",
+  "yosnya": "iOS-nya",
+  "polo": "follow",
+  "korajak": null,
+  "sempe": null,
+  "healthnya": "health-nya",
+  "bateri": "baterai",
+  "ignya": "IG-nya",
+  "hapenya": "HP-nya",
+  "hp": "HP",
+  "nya": "-nya",
+  "ios": "iOS",
+  "iphone": "iPhone",
+  "tiktok": "TikTok",
+  "3": "350",
+  ".50": null,
+  "kak,": "kak",
+  "lama,": "lama",
+  "bisa,": "bisa",
+  "wa": "WA"
+ },
+ "effects": [
+  {
+   "type": "zoom",
+   "src0": 15.3,
+   "src1": 16.43,
+   "scale": 1.3,
+   "cx": 300,
+   "cy": 330,
+   "tin": 0.15
+  },
+  {
+   "type": "zoom",
+   "src0": 23.0,
+   "src1": 25.33,
+   "scale": 1.18,
+   "cx": 320,
+   "cy": 360
+  },
+  {
+   "type": "drift",
+   "src0": 48.23,
+   "src1": 52.63,
+   "s0": 1.0,
+   "s1": 1.08,
+   "cx": 420,
+   "cy": 700
+  },
+  {
+   "type": "zoom",
+   "src0": 71.0,
+   "src1": 72.3,
+   "scale": 1.45,
+   "cx": 240,
+   "cy": 1450
+  },
+  {
+   "type": "sticker",
+   "src0": 73.1,
+   "dur": 2.4,
+   "emoji": "🦖",
+   "text": "iOS\nJADUL",
+   "cx": 790,
+   "cy": 930
+  },
+  {
+   "type": "zoom",
+   "src0": 81.0,
+   "src1": 83.47,
+   "scale": 1.35,
+   "cx": 300,
+   "cy": 260
+  },
+  {
+   "type": "zoom",
+   "src0": 127.9,
+   "src1": 128.8,
+   "scale": 1.3,
+   "cx": 340,
+   "cy": 440
+  },
+  {
+   "type": "gray",
+   "src0": 127.9,
+   "src1": 128.8
+  },
+  {
+   "type": "zoom",
+   "src0": 136.77,
+   "src1": 138.0,
+   "scale": 1.35,
+   "cx": 340,
+   "cy": 440
+  },
+  {
+   "type": "zoom",
+   "src0": 222.3,
+   "src1": 224.97,
+   "scale": 1.3,
+   "cx": 880,
+   "cy": 520
+  },
+  {
+   "type": "sticker",
+   "src0": 228.0,
+   "dur": 2.3,
+   "emoji": "🧐",
+   "text": "KAYAK\nUDAH GEDE",
+   "cx": 770,
+   "cy": 1000
+  },
+  {
+   "type": "sticker",
+   "src0": 245.3,
+   "dur": 2.6,
+   "emoji": "♏",
+   "text": "SCORPIO",
+   "cx": 780,
+   "cy": 950
+  },
+  {
+   "type": "zoom",
+   "src0": 265.77,
+   "src1": 269.8,
+   "scale": 1.3,
+   "cx": 240,
+   "cy": 220
+  },
+  {
+   "type": "sticker",
+   "src0": 272.7,
+   "dur": 2.2,
+   "emoji": "😤",
+   "text": "KERAS\nKEPALA",
+   "cx": 790,
+   "cy": 980
+  },
+  {
+   "type": "hearts",
+   "src0": 276.2,
+   "src1": 282.2
+  },
+  {
+   "type": "zoom",
+   "src0": 286.4,
+   "src1": 288.4,
+   "scale": 1.3,
+   "cx": 340,
+   "cy": 460
+  },
+  {
+   "type": "dizzy",
+   "src0": 286.5,
+   "src1": 288.4,
+   "cx": 340,
+   "cy": 300,
+   "rx": 170
+  },
+  {
+   "type": "sticker",
+   "src0": 287.4,
+   "dur": 1.0,
+   "emoji": "🤥",
+   "text": "PINTER\nBOHONG",
+   "cx": 790,
+   "cy": 820
+  },
+  {
+   "type": "zoom",
+   "src0": 347.4,
+   "src1": 349.87,
+   "scale": 1.6,
+   "cx": 360,
+   "cy": 600,
+   "tin": 0.2
+  },
+  {
+   "type": "hearts",
+   "src0": 351.5,
+   "src1": 356.73
+  },
+  {
+   "type": "sticker",
+   "src0": 468.2,
+   "dur": 3.0,
+   "emoji": "😱",
+   "text": "JUAL\nGINJAL?!",
+   "cx": 790,
+   "cy": 400
+  },
+  {
+   "type": "zoom",
+   "src0": 475.73,
+   "src1": 477.43,
+   "scale": 1.6,
+   "cx": 420,
+   "cy": 660
+  },
+  {
+   "type": "zoom",
+   "src0": 482.97,
+   "src1": 485.0,
+   "scale": 1.5,
+   "cx": 420,
+   "cy": 660
+  },
+  {
+   "type": "zoom",
+   "src0": 571.4,
+   "src1": 573.2,
+   "scale": 1.4,
+   "cx": 300,
+   "cy": 1300
+  },
+  {
+   "type": "zoom",
+   "src0": 617.27,
+   "src1": 620.17,
+   "scale": 1.4,
+   "cx": 220,
+   "cy": 1200
+  },
+  {
+   "type": "sticker",
+   "src0": 619.0,
+   "dur": 2.0,
+   "emoji": "🔋",
+   "text": "100%",
+   "cx": 790,
+   "cy": 700
+  },
+  {
+   "type": "zoom",
+   "src0": 742.0,
+   "src1": 745.6,
+   "scale": 1.6,
+   "cx": 320,
+   "cy": 520,
+   "tin": 0.2
+  },
+  {
+   "type": "sticker",
+   "src0": 761.6,
+   "dur": 1.8,
+   "emoji": "🙈",
+   "text": "GAK PEDE",
+   "cx": 790,
+   "cy": 420
+  },
+  {
+   "type": "sticker",
+   "src0": 781.0,
+   "dur": 2.4,
+   "emoji": "🌟",
+   "text": "SELEB\nTIKTOK",
+   "cx": 790,
+   "cy": 420
+  },
+  {
+   "type": "zoom",
+   "src0": 787.3,
+   "src1": 789.0,
+   "scale": 1.5,
+   "cx": 440,
+   "cy": 560
+  },
+  {
+   "type": "sad",
+   "src0": 790.4,
+   "src1": 796.5
+  },
+  {
+   "type": "drift",
+   "src0": 826.9,
+   "src1": 841.0,
+   "s0": 1.0,
+   "s1": 1.12,
+   "cx": 480,
+   "cy": 600
+  },
+  {
+   "type": "sticker",
+   "src0": 838.8,
+   "dur": 2.2,
+   "emoji": "💸",
+   "text": "INVESTASI",
+   "cx": 790,
+   "cy": 400
+  }
+ ],
+ "sfx": [
+  {
+   "name": "ding",
+   "src": 781.0,
+   "gain": -3
+  },
+  {
+   "name": "scratch",
+   "src": 127.95
+  }
+ ],
+ "cap_override": [
+  [
+   790.0,
+   792.5,
+   "AKU BARU 10 RIBU"
+  ],
+  [
+   107.3,
+   108.5,
+   "350"
+  ],
+  [
+   787.3,
+   789.2,
+   "UDAH 42 RIBU"
+  ]
+ ]
+}
