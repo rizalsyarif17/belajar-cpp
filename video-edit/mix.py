@@ -15,7 +15,7 @@ def dur(p):
 
 D = dur(voice)
 VOICE_T = -16.0           # voice bus target before final normalisation
-MUSIC_REL = -14.0         # music bed level vs voice before ducking
+MUSIC_REL = plan.get('music_rel', -14.0)   # music bed level vs voice before ducking
 v_I = lufs(voice, 'highpass=f=70')
 m_I = lufs(f'{adir}/music.wav')
 vg = VOICE_T - v_I; mg = VOICE_T + MUSIC_REL - m_I

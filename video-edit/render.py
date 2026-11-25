@@ -86,6 +86,12 @@ def main():
         card = active(t, 'card')
         for e in card:
             gfx.draw_title_card(canvas, t - e['t0'], e['t1'] - e['t0'])
+        for e in active(t, 'flash'):
+            k = 1 - ease_out_cubic((t - e['t0']) / (e['t1'] - e['t0']))
+            canvas.alpha_composite(Image.new('RGBA', (W, H), (255, 255, 255, int(235 * k))))
+        if plan.get('progress') and not card:
+            pw = int(W * min(1, (t + 1 / FPS) / plan['total']))
+            canvas.paste(tuple(plan['progress']) + (255,), (0, 0, pw, 16))
         if not card:
             for g in caps:
                 if g['t0'] <= t < g['t1']:

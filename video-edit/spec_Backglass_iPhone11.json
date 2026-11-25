@@ -1,0 +1,204 @@
+{
+ "raw_dir": "/tmp/claude-0/-home-user-belajar-cpp/d18ffba8-f99d-5d8b-bae5-b4e8fcb70ea2/scratchpad/v2/",
+ "vf_pre": "crop=712:1266:4:14",
+ "grade": false,
+ "progress": [
+  253,
+  233,
+  24
+ ],
+ "captions": false,
+ "timeline": [
+  {
+   "src": [
+    0.0,
+    7.5
+   ]
+  },
+  {
+   "src": [
+    7.5,
+    10.5
+   ],
+   "novad": true
+  },
+  {
+   "src": [
+    14.9,
+    16.5
+   ],
+   "novad": true
+  },
+  {
+   "src": [
+    18.6,
+    27.1
+   ]
+  },
+  {
+   "src": [
+    32.9,
+    41.5
+   ]
+  },
+  {
+   "src": [
+    54.5,
+    58.9
+   ]
+  },
+  {
+   "src": [
+    69.4,
+    78.3
+   ]
+  },
+  {
+   "src": [
+    102.0,
+    120.0
+   ],
+   "speed": 4
+  },
+  {
+   "src": [
+    120.0,
+    128.6
+   ]
+  },
+  {
+   "src": [
+    130.7,
+    134.6
+   ]
+  },
+  {
+   "src": [
+    138.0,
+    157.0
+   ],
+   "speed": 4
+  },
+  {
+   "src": [
+    158.5,
+    163.3
+   ],
+   "novad": true
+  },
+  {
+   "src": [
+    165.0,
+    166.83
+   ],
+   "novad": true
+  }
+ ],
+ "effects": [
+  {
+   "type": "zoom",
+   "src0": 5.4,
+   "src1": 7.45,
+   "scale": 1.3,
+   "cx": 540,
+   "cy": 1000,
+   "tin": 0.2
+  },
+  {
+   "type": "flash",
+   "src0": 7.5,
+   "dur": 0.28
+  },
+  {
+   "type": "zoom",
+   "src0": 21.9,
+   "src1": 23.1,
+   "scale": 1.25,
+   "cx": 330,
+   "cy": 560
+  },
+  {
+   "type": "zoom",
+   "src0": 38.85,
+   "src1": 41.45,
+   "scale": 1.15,
+   "cx": 540,
+   "cy": 900
+  },
+  {
+   "type": "flash",
+   "src0": 102.0,
+   "dur": 0.25
+  },
+  {
+   "type": "drift",
+   "src0": 102.0,
+   "src1": 120.0,
+   "s0": 1.0,
+   "s1": 1.1,
+   "cx": 540,
+   "cy": 1100
+  },
+  {
+   "type": "flash",
+   "src0": 120.0,
+   "dur": 0.22,
+   "nosfx": true
+  },
+  {
+   "type": "dizzy",
+   "src0": 133.0,
+   "src1": 134.6,
+   "cx": 450,
+   "cy": 330,
+   "rx": 170
+  },
+  {
+   "type": "flash",
+   "src0": 138.0,
+   "dur": 0.25
+  },
+  {
+   "type": "drift",
+   "src0": 138.0,
+   "src1": 157.0,
+   "s0": 1.0,
+   "s1": 1.1,
+   "cx": 540,
+   "cy": 1100
+  },
+  {
+   "type": "flash",
+   "src0": 158.5,
+   "dur": 0.25,
+   "nosfx": true
+  },
+  {
+   "type": "hearts",
+   "src0": 160.6,
+   "src1": 163.3
+  },
+  {
+   "type": "zoom",
+   "src0": 160.6,
+   "src1": 163.3,
+   "scale": 1.12,
+   "cx": 540,
+   "cy": 1000,
+   "tin": 0.3
+  }
+ ],
+ "sfx": [
+  {
+   "name": "tada",
+   "src": 7.55,
+   "gain": -2
+  },
+  {
+   "name": "scratch",
+   "src": 14.95,
+   "gain": -2
+  }
+ ],
+ "music_rel": -16.0
+}

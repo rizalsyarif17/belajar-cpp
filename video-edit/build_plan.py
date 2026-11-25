@@ -2,10 +2,10 @@
 Ranges are picked by content; inside each range silences are removed with VAD (jump cuts).
 Effects/SFX are authored in SOURCE time (anchored to what is said/seen) and mapped to output time."""
 import json, sys, re
-RAW = '/tmp/claude-0/-home-user-belajar-cpp/d18ffba8-f99d-5d8b-bae5-b4e8fcb70ea2/scratchpad/raw/'
+spec = json.load(open(sys.argv[1]))
+RAW = spec.get('raw_dir', '/tmp/claude-0/-home-user-belajar-cpp/d18ffba8-f99d-5d8b-bae5-b4e8fcb70ea2/scratchpad/raw/')
 speech = json.load(open(RAW + 'speech.json'))
 words = json.load(open(RAW + 'words.json'))
-spec = json.load(open(sys.argv[1]))
 outdir = sys.argv[2]
 FPS = 30
 def fr(x): return round(x * FPS) / FPS
@@ -16,8 +16,12 @@ for item in spec['timeline']:
     if 'card' in item:
         d = fr(item['card']); segments.append({'card': d, 'out0': cursor}); cursor = fr(cursor + d); continue
     a, b = item['src']
+    if item.get('speed'):
+        sp = item['speed']; od = fr((b - a) / sp)
+        segments.append({'src0': a, 'src1': round(a + od * sp, 4), 'speed': sp, 'out0': cursor})
+        mapping.append((a, a + od * sp, cursor, sp)); cursor = fr(cursor + od); continue
     keep = []
-    for s, e in speech:
+    for s, e in ([[a, b]] if item.get('novad') else speech):
         s2, e2 = max(s, a), min(e, b)
         if e2 - s2 > 0.12: keep.append([s2, e2])
     for cut in item.get('drop', []):          # manual removals inside a range
@@ -37,23 +41,24 @@ for item in spec['timeline']:
         if e - s < 0.35: continue
         s, e = fr(s), fr(e)
         segments.append({'src0': s, 'src1': e, 'out0': cursor})
-        mapping.append((s, e, cursor)); cursor = fr(cursor + (e - s))
+        mapping.append((s, e, cursor, 1)); cursor = fr(cursor + (e - s))
 total = cursor
 
 def s2o(t, snap='near'):
     best = None
-    for s, e, o in mapping:
-        if s <= t <= e: return o + (t - s)
+    for s, e, o, sp in mapping:
+        if s <= t <= e: return o + (t - s) / sp
         # outside: snap to nearest boundary
         d = min(abs(t - s), abs(t - e))
-        if best is None or d < best[0]: best = (d, o if abs(t - s) < abs(t - e) else o + (e - s))
+        if best is None or d < best[0]: best = (d, o if abs(t - s) < abs(t - e) else o + (e - s) / sp)
     return best[1]
 
 # ---------- captions ----------
 FIX = spec.get('fix', {})
 cap_words = []
 for w in words:
-    for mi, (s, e, o) in enumerate(mapping):
+    for mi, (s, e, o, sp) in enumerate(mapping):
+        if sp != 1: continue
         if s - 0.05 <= w['s'] < e:
             txt = w['w'].strip()
             key = txt.lower().strip('?,.!')
@@ -97,6 +102,7 @@ for i, g in enumerate(groups):
     nxt = groups[i + 1][0]['t0'] - 0.04 if i + 1 < len(groups) else total
     t1 = min(nxt, g[-1]['t1'] + 0.35)
     caps.append({'t0': round(t0, 3), 't1': round(t1, 3), 'words': [{'text': w['text'], 't0': w['t0'], 't1': w['t1']} for w in g]})
+if spec.get('captions') is False: caps = []
 # hide captions while title card is up
 cards = [(s['out0'], s['out0'] + s['card']) for s in segments if 'card' in s]
 caps = [c for c in caps if not any(a <= c['t0'] < b for a, b in cards)]
@@ -119,7 +125,7 @@ for x in spec.get('sfx', []):
     sfx.append(x)
 # automatic SFX tied to effect entrances (consistent "in" sounds like the reference)
 AUTO = {'sticker': ('pop', 0), 'dizzy': ('boing', 0), 'hearts': ('ding', 0), 'sad': ('sad', 0.05),
-        'zoom': ('whoosh', -0.12), 'card': ('swipe', -0.05)}
+        'zoom': ('whoosh', -0.12), 'card': ('swipe', -0.05), 'flash': ('whoosh', -0.15)}
 for e in effects:
     if e.get('nosfx'): continue
     if e['type'] in AUTO:
@@ -127,7 +133,8 @@ for e in effects:
         if e['type'] == 'zoom' and e.get('scale', 1) < 1.25: n = 'click'
         sfx.append({'name': n, 't': round(max(0, e['t0'] + off), 3)})
     if e['type'] == 'card': sfx.append({'name': 'whoosh', 't': round(e['t1'] - 0.18, 3)})
-plan = {'total': total, 'segments': [{k: v for k, v in s.items() if k != 'out0'} for s in segments],
+plan = {'total': total, 'vf_pre': spec.get('vf_pre'), 'grade': spec.get('grade', True), 'progress': spec.get('progress'),
+        'raw_audio_gain': spec.get('raw_audio_gain', 0), 'music_rel': spec.get('music_rel', -14.0), 'segments': [{k: v for k, v in s.items() if k != 'out0'} for s in segments],
         'seg_out0': [s['out0'] for s in segments], 'effects': effects, 'sfx': sorted(sfx, key=lambda x: x['t'])}
 json.dump(plan, open(outdir + '/plan.json', 'w'), indent=1, ensure_ascii=False)
 json.dump(caps, open(outdir + '/captions.json', 'w'), indent=1, ensure_ascii=False)
@@ -137,5 +144,5 @@ print(f'total {total:.2f}s, {len([s for s in segments if "src0" in s])} cuts, {l
 with open(outdir + '/timeline.txt', 'w') as f:
     for s in segments:
         if 'card' in s: f.write(f"{s['out0']:7.2f} CARD {s['card']}\n")
-        else: f.write(f"{s['out0']:7.2f} src {s['src0']:.2f}-{s['src1']:.2f}\n")
+        else: f.write(f"{s['out0']:7.2f} src {s['src0']:.2f}-{s['src1']:.2f} x{s.get('speed', 1)}\n")
     for c in caps: f.write(f"  cap {c['t0']:7.2f} {' '.join(w['text'] for w in c['words'])}\n")
